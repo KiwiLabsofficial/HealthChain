@@ -1,9 +1,9 @@
 import React from 'react';
-import { useWalletStore } from '../lib/store';
+import { useWallet } from '../lib/store';
 import { Upload, Shield, History } from 'lucide-react';
 
 export function Demo() {
-  const { isConnected, connect } = useWalletStore();
+  const { isWalletConnected, connectWallet } = useWallet();
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,8 +14,8 @@ export function Demo() {
   };
 
   const handleUpload = async () => {
-    if (!isConnected) {
-      await connect();
+    if (!isWalletConnected) {
+      await connectWallet();
       return;
     }
     
@@ -73,7 +73,7 @@ export function Demo() {
               onClick={handleUpload}
               className="w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200"
             >
-              {isConnected ? 'Upload Health Record' : 'Connect Wallet to Upload'}
+              {isWalletConnected ? 'Upload Health Record' : 'Connect Wallet to Upload'}
             </button>
 
             <div className="flex items-center justify-center space-x-2 text-sm text-gray-400">
