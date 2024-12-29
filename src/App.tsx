@@ -5,7 +5,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
-import { Demo } from './components/Demo';
+// import { Demo } from './components/Demo';
 import { CallToAction } from './components/CallToAction';
 import { Footer } from './components/Footer';
 import  DApp from './pages/DApp';
@@ -18,7 +18,7 @@ function LandingPage() {
       <About />
       <Features />
       <HowItWorks />
-      <Demo />
+      {/* <Demo /> */}
       <CallToAction />
       <Footer />
     </div>
